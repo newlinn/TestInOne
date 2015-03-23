@@ -1,12 +1,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="cn.testinone.components.NotificationActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnNormalNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Normal Notification"
+        android:onClick="normalNotification"/>
+
+    <Button
+        android:id="@+id/btnBigViewTextNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Big View Text"
+        android:onClick="bigViewTextNotification"/>
+
+    <Button
+        android:id="@+id/btnBigViewPicNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Big View Pic"
+        android:onClick="bigViewPicNotification"/>
+
+    <Button
+        android:id="@+id/btnInboxNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inbox"
+        android:onClick="inboxNotification"/>
+
+    <Button
+        android:id="@+id/btnCustomNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        android:onClick="customNotification"/>
+
+    <Button
+        android:id="@+id/btnDismiss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dismiss"
+        android:onClick="dismiss"/>
 
 </LinearLayout>
