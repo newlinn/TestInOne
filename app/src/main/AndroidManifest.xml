@@ -20,6 +20,14 @@
             android:name=".components.NotificationActivity"
             android:label="@string/title_activity_notification" >
         </activity>
+        <activity
+            android:name=".components.CustomNotificationActivity"
+            android:label="@string/title_activity_custom_notification" >
+        </activity>
+        <activity
+            android:name=".BlankActivity"
+            android:label="@string/title_activity_blank" >
+        </activity>
     </application>
 
 </manifest>

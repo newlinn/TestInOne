@@ -4,4 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_custom_notification">CustomNotificationActivity</string>
+    <string name="title_activity_blank">BlankActivity</string>
 </resources>

@@ -3,7 +3,9 @@ package cn.testinone.components;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
@@ -13,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.RemoteViews;
 
+import cn.testinone.BlankActivity;
 import cn.testinone.R;
 
 public class NotificationActivity extends Activity {
@@ -26,6 +30,7 @@ public class NotificationActivity extends Activity {
     static int FLAG_BIG_VIEW_PIC = 1003;
     static int FLAG_INBOX = 1004;
     static int FLAG_CUSTOM = 1005;
+    static int FLAG_PROGRESS = 1006;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,13 +125,50 @@ public class NotificationActivity extends Activity {
     }
 
     public void customNotification(View view) {
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.activity_custom_notification);
+        Intent previousIntent = new Intent(this, BlankActivity.class);
+        PendingIntent pi = PendingIntent.getBroadcast(this,2001, previousIntent, 0);
+        remoteViews.setOnClickPendingIntent(R.id.btnPrevious, pi);
         Notification notification = new NotificationCompat.Builder(this)
                 .setContent(remoteViews)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setLargeIcon(icon)
                 .setOngoing(true)
+                .setAutoCancel(true)
                 .setTicker("music is playing")
                 .build();
         manager.notify(FLAG_CUSTOM, notification);
+    }
+
+    public void progressNotification(View view) {
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        Notification notification = builder
+                .setContentTitle("Progress")
+                .setContentText("Progress bar")
+                .setContentInfo("Info")
+                .setTicker("progress ticker")
+                .setLargeIcon(icon)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setOngoing(true)
+                .setAutoCancel(true)
+                .build();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 100; i++) {
+                    try {
+                        builder.setProgress(100, i, false);
+                        builder.setContentInfo(String.valueOf(i) + "%");
+                        manager.notify(FLAG_PROGRESS, builder.build());
+                        Thread.sleep(500);
+                    } catch (Exception ex) {
+                    }
+                }
+                builder.setContentTitle("Completed!")
+                        .setOngoing(false);
+                manager.notify(FLAG_PROGRESS, builder.build());
+            }
+        }).start();
     }
 }
