@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -31,6 +32,8 @@ public class NotificationActivity extends Activity {
     static int FLAG_INBOX = 1004;
     static int FLAG_CUSTOM = 1005;
     static int FLAG_PROGRESS = 1006;
+    static int FLAG_BACK_APP = 1007;
+    static int FLAG_BACK_SCREEN = 1008;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +51,12 @@ public class NotificationActivity extends Activity {
 
     public void normalNotification(View view) {
         Notification notification = new NotificationCompat.Builder(this)
-                .setLargeIcon(icon)
+                .setContentTitle("ContentTitle")
+                .setContentText("ContentText")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setTicker("showNormal")
                 .setContentInfo("contentInfo")
-                .setContentTitle("ContentTitle")
-                .setContentText("ContentText")
+                .setLargeIcon(icon)
                 .setNumber(FLAG_NORMAL)
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -125,8 +128,10 @@ public class NotificationActivity extends Activity {
     }
 
     public void customNotification(View view) {
+        //todo
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.activity_custom_notification);
-        Intent previousIntent = new Intent(this, BlankActivity.class);
+        Intent previousIntent = new Intent(this, MyNotificationReceiver.class);
+        previousIntent.putExtra("do", "previous");
         PendingIntent pi = PendingIntent.getBroadcast(this,2001, previousIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.btnPrevious, pi);
         Notification notification = new NotificationCompat.Builder(this)
@@ -170,5 +175,55 @@ public class NotificationActivity extends Activity {
                 manager.notify(FLAG_PROGRESS, builder.build());
             }
         }).start();
+    }
+
+    public void backApp(View view) {
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        // Adds the back stack
+        stackBuilder.addParentStack(BackAppActivity.class);
+        // Adds the Intent to the top of the stack
+        Intent resultIntent = new Intent(this, BackAppActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        // Gets a PendingIntent containing the entire back stack
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = new NotificationCompat.Builder(this)
+                .setLargeIcon(icon)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setTicker("backApp")
+                .setContentInfo("contentInfo")
+                .setContentTitle("ContentTitle")
+                .setContentText("ContentText")
+                .setContentIntent(resultPendingIntent)
+                .setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .build();
+        manager.notify(FLAG_BACK_APP, notification);
+        this.finish();
+    }
+
+    public void backScreen(View view){
+        Intent notifyIntent = new Intent(this, BackScreenActivity.class);
+        // Sets the Activity to start in a new, empty task
+        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        // Creates the PendingIntent
+        PendingIntent notify_Intent = PendingIntent.getActivity(this, 0,
+                notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = new NotificationCompat.Builder(this)
+                .setLargeIcon(icon)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setTicker("backScreen")
+                .setContentInfo("contentInfo")
+                .setContentTitle("ContentTitle")
+                .setContentText("ContentText")
+                .setContentIntent(notify_Intent)
+                .setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .build();
+        manager.notify(FLAG_BACK_SCREEN, notification);
+        this.finish();
     }
 }

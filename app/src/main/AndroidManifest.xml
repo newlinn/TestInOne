@@ -25,9 +25,30 @@
             android:label="@string/title_activity_custom_notification" >
         </activity>
         <activity
+            android:name=".components.BackAppActivity"
+            android:label="@string/title_activity_back_app"
+            android:parentActivityName=".components.NotificationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".components.BackScreenActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_back_screen"
+            android:launchMode="singleTask"
+            android:taskAffinity="" >
+        </activity>
+        <activity
             android:name=".BlankActivity"
             android:label="@string/title_activity_blank" >
         </activity>
+
+        <receiver
+            android:name=".components.MyNotificationReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
     </application>
 
 </manifest>

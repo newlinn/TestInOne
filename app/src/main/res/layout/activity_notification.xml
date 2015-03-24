@@ -48,6 +48,20 @@
         android:onClick="progressNotification"/>
 
     <Button
+        android:id="@+id/btnBackApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back App"
+        android:onClick="backApp"/>
+
+    <Button
+        android:id="@+id/btnBackScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back Screen"
+        android:onClick="backScreen"/>
+
+    <Button
         android:id="@+id/btnDismiss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
