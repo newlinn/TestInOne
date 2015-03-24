@@ -1,4 +1,4 @@
-package cn.testinone.components;
+package cn.testinone.ntfy;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

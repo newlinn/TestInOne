@@ -1,4 +1,4 @@
-package cn.testinone.components;
+package cn.testinone.ntfy;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import cn.testinone.R;
 
-public class CustomNotificationActivity extends ActionBarActivity {
+public class BackAppActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_notification);
+        setContentView(R.layout.activity_back_app);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_custom_notification, menu);
+        getMenuInflater().inflate(R.menu.menu_back_app, menu);
         return true;
     }
 

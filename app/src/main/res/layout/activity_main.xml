@@ -11,5 +11,10 @@
         android:layout_height="wrap_content"
         android:onClick="onBtnClick"
         android:text="Notification"/>
-
+    <Button
+        android:id="@+id/btnWebView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="webView"
+        android:text="Web View"/>
 </LinearLayout>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.testinone" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,23 +19,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".components.NotificationActivity"
+            android:name=".ntfy.NotificationActivity"
             android:label="@string/title_activity_notification" >
         </activity>
         <activity
-            android:name=".components.CustomNotificationActivity"
+            android:name=".ntfy.CustomNotificationActivity"
             android:label="@string/title_activity_custom_notification" >
         </activity>
         <activity
-            android:name=".components.BackAppActivity"
+            android:name=".ntfy.BackAppActivity"
             android:label="@string/title_activity_back_app"
-            android:parentActivityName=".components.NotificationActivity" >
+            android:parentActivityName=".ntfy.NotificationActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".components.BackScreenActivity"
+            android:name=".ntfy.BackScreenActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_back_screen"
             android:launchMode="singleTask"
@@ -45,10 +47,15 @@
         </activity>
 
         <receiver
-            android:name=".components.MyNotificationReceiver"
+            android:name=".ntfy.MyNotificationReceiver"
             android:enabled="true"
             android:exported="true" >
         </receiver>
+
+        <activity
+            android:name=".webviews.WebViewWithProgressActivity"
+            android:label="@string/title_activity_web_view" >
+        </activity>
     </application>
 
 </manifest>

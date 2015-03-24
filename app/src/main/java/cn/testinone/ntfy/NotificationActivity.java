@@ -1,4 +1,4 @@
-package cn.testinone.components;
+package cn.testinone.ntfy;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -10,15 +10,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.RemoteViews;
 
-import cn.testinone.BlankActivity;
 import cn.testinone.R;
 
 public class NotificationActivity extends Activity {
