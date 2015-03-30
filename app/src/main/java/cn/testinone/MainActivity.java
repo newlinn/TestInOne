@@ -9,10 +9,12 @@ import android.os.Process;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.webkit.WebView;
 
+import cn.testinone.listView.FruitActivity;
 import cn.testinone.ntfy.NotificationActivity;
-import cn.testinone.webviews.WebViewWithProgressActivity;
+import cn.testinone.webviews.HttpActivity;
+import cn.testinone.webviews.MyWebViewActivity;
+import cn.testinone.webviews.WebDataActivity;
 
 
 public class MainActivity extends Activity {
@@ -55,17 +57,30 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void onBtnClick(View view){
-        switch (view.getId()){
+    public void onBtnClick(View view) {
+        switch (view.getId()) {
             case R.id.btnNotification:
                 startActivity(new Intent(this, NotificationActivity.class));
                 break;
+
             default:
                 break;
         }
     }
 
-    public void webView(View view){
-        startActivity(new Intent(this, WebViewWithProgressActivity.class));
+    public void webView(View view) {
+        startActivity(new Intent(this, MyWebViewActivity.class));
+    }
+
+    public void fruitLstView(View view) {
+        startActivity(new Intent(this, FruitActivity.class));
+    }
+
+    public void httpRequest(View view) {
+        startActivity(new Intent(MainActivity.this, HttpActivity.class));
+    }
+
+    public void parseWebData(View view) {
+        startActivity(new Intent(MainActivity.this, WebDataActivity.class));
     }
 }

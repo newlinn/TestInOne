@@ -9,4 +9,7 @@
     <string name="title_activity_back_screen">BackScreenActivity</string>
     <string name="title_activity_back_app">BackAppActivity</string>
     <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_fruit">FruitActivity</string>
+    <string name="title_activity_http">HttpActivity</string>
+    <string name="title_activity_web_data">WebDataActivity</string>
 </resources>

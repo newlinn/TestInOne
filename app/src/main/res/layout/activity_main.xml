@@ -17,4 +17,24 @@
         android:layout_height="wrap_content"
         android:onClick="webView"
         android:text="Web View"/>
+    <Button
+        android:id="@+id/btnFruitLstView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="fruitLstView"
+        android:text="Fruit ListView"/>
+
+    <Button
+        android:id="@+id/btnHTTPREQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="httpRequest"
+        android:text="httpRequest"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parse Web Data"
+        android:onClick="parseWebData"/>
+
 </LinearLayout>

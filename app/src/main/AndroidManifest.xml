@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.testinone" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -53,8 +53,20 @@
         </receiver>
 
         <activity
-            android:name=".webviews.WebViewWithProgressActivity"
+            android:name=".webviews.MyWebViewActivity"
             android:label="@string/title_activity_web_view" >
+        </activity>
+        <activity
+            android:name=".listView.FruitActivity"
+            android:label="@string/title_activity_fruit" >
+        </activity>
+        <activity
+            android:name=".webviews.HttpActivity"
+            android:label="@string/title_activity_http" >
+        </activity>
+        <activity
+            android:name=".webviews.WebDataActivity"
+            android:label="@string/title_activity_web_data" >
         </activity>
     </application>
 
