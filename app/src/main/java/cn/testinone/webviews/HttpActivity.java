@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -73,13 +74,14 @@ public class HttpActivity extends Activity {
                     HttpEntity entity = new UrlEncodedFormEntity(params, "utf-8");
                     post.setEntity(entity);
                     response = client.execute(post);
-                    if (response.getStatusLine().getStatusCode() == 200) {
+                    if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                         HttpEntity httpEntity = response.getEntity();
                         String ret = EntityUtils.toString(httpEntity, "utf-8");
                         Message msg = new Message();
                         msg.what = FLAG_SHOW_RESPONSE;
                         msg.obj = ret;
                         uiHandler.sendMessage(msg);
+
                     }
                 } catch (Exception ex) {
                     Toast.makeText(HttpActivity.this, ex.toString(), Toast.LENGTH_SHORT).show();
@@ -98,7 +100,7 @@ public class HttpActivity extends Activity {
                 try {
                     HttpGet get = new HttpGet("http://www.jandan.net/");
                     response = client.execute(get);
-                    if (response.getStatusLine().getStatusCode() == 200) {
+                    if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                         HttpEntity entity = response.getEntity();
                         String ret = EntityUtils.toString(entity, "utf-8");
                         Message msg = new Message();
@@ -125,6 +127,9 @@ public class HttpActivity extends Activity {
                     conn.setRequestMethod("POST");
                     DataOutputStream out = new DataOutputStream(conn.getOutputStream());
                     out.writeBytes("q=%E6%B1%BD%E8%BD%A6&s=18250727425702039732&source=jandan.net");
+                    out.flush();
+                    out.close();
+
                     conn.setConnectTimeout(8000);
                     conn.setReadTimeout(8000);
 

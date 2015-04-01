@@ -9,6 +9,7 @@ import android.os.Process;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import cn.testinone.listView.FruitActivity;
 import cn.testinone.ntfy.NotificationActivity;
@@ -29,32 +30,24 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        android.os.Process.killProcess(Process.myPid());
+        Process.killProcess(Process.myPid());
     }
 
+    long waitTime = 2000;
+    long touchTime = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (KeyEvent.KEYCODE_BACK == keyCode) {
-            new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("确定退出系统吗？")
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+        if (KeyEvent.KEYCODE_BACK == keyCode && KeyEvent.ACTION_DOWN == event.getAction()) {
+            long curTime = System.currentTimeMillis();
+            if ((curTime - touchTime) >= waitTime) {
+                Toast.makeText(MainActivity.this, "再按一次退出程序！", Toast.LENGTH_SHORT).show();
+                touchTime = curTime;
+            } else
+                finish();
+            return true;
+        }
 
-                        }
-                    })
-                    .show();
-        } else
-            return super.onKeyDown(keyCode, event);
-
-        return true;
+        return super.onKeyDown(keyCode, event);
     }
 
     public void onBtnClick(View view) {

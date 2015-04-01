@@ -18,13 +18,15 @@ public class HttpHelper {
             public void run() {
                 HttpURLConnection conn = null;
                 try {
-    URL url = new URL(address);
-                    conn =(HttpURLConnection) url.openConnection();
+                    URL url = new URL(address);
+                    conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setConnectTimeout(8000);
                     conn.setReadTimeout(8000);
                     DataOutputStream out = new DataOutputStream(conn.getOutputStream());
                     out.writeBytes(params);
+                    out.flush();
+                    out.close();
 
                     InputStream in = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -34,7 +36,7 @@ public class HttpHelper {
                         response.append(line);
                     if (callback != null)
                         callback.onFinish(response.toString());
-                    
+
                 } catch (Exception ex) {
                     if (callback != null)
                         callback.onError(ex);
