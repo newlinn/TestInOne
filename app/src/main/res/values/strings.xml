@@ -12,4 +12,9 @@
     <string name="title_activity_fruit">FruitActivity</string>
     <string name="title_activity_http">HttpActivity</string>
     <string name="title_activity_web_data">WebDataActivity</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_activity_recycle_fruit">RecycleFruitActivity</string>
+    <string name="title_activity_drawer_layout">DrawerLayoutActivity</string>
+    <string name="OPEN">OPEN</string>
+    <string name="CLOSE">CLOSE</string>
 </resources>

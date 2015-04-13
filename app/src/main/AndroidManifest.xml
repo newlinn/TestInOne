@@ -68,6 +68,18 @@
             android:name=".webviews.WebDataActivity"
             android:label="@string/title_activity_web_data" >
         </activity>
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer" >
+        </activity>
+        <activity
+            android:name=".listView.RecycleFruitActivity"
+            android:label="@string/title_activity_recycle_fruit" >
+        </activity>
+        <activity
+            android:name=".menu.DrawerLayoutActivity"
+            android:label="@string/title_activity_drawer_layout" >
+        </activity>
     </application>
 
 </manifest>

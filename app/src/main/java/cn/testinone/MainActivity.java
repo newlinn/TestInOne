@@ -12,6 +12,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 import cn.testinone.listView.FruitActivity;
+import cn.testinone.listView.RecycleFruitActivity;
+import cn.testinone.menu.DrawerLayoutActivity;
 import cn.testinone.ntfy.NotificationActivity;
 import cn.testinone.webviews.HttpActivity;
 import cn.testinone.webviews.MyWebViewActivity;
@@ -35,6 +37,7 @@ public class MainActivity extends Activity {
 
     long waitTime = 2000;
     long touchTime = 0;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (KeyEvent.KEYCODE_BACK == keyCode && KeyEvent.ACTION_DOWN == event.getAction()) {
@@ -75,5 +78,17 @@ public class MainActivity extends Activity {
 
     public void parseWebData(View view) {
         startActivity(new Intent(MainActivity.this, WebDataActivity.class));
+    }
+
+    public void btnDrawerLayout(View view) {
+        startActivity(new Intent(MainActivity.this, DrawerActivity.class));
+    }
+
+    public void btnRecyclerView(View view) {
+        startActivity(new Intent(MainActivity.this, RecycleFruitActivity.class));
+    }
+
+    public void btnDrawerLayoutActionBar(View view){
+        startActivity(new Intent(MainActivity.this, DrawerLayoutActivity.class));
     }
 }

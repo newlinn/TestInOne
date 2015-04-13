@@ -37,4 +37,24 @@
         android:text="Parse Web Data"
         android:onClick="parseWebData"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DrawerLayout"
+        android:onClick="btnDrawerLayout"/>
+
+    <Button
+        android:id="@+id/btnRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RecyclerView"
+        android:onClick="btnRecyclerView"/>
+
+    <Button
+        android:id="@+id/btnDrawerLayoutActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnDrawerLayoutActionBar"
+        android:onClick="btnDrawerLayoutActionBar"/>
+
 </LinearLayout>
