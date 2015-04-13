@@ -1,4 +1,4 @@
-package cn.testinone;
+package cn.testinone.drawer;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
+
+import cn.testinone.R;
 
 
 public class DrawerActivity extends Activity {

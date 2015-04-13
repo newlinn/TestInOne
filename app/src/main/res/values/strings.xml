@@ -17,4 +17,5 @@
     <string name="title_activity_drawer_layout">DrawerLayoutActivity</string>
     <string name="OPEN">OPEN</string>
     <string name="CLOSE">CLOSE</string>
+    <string name="title_activity_tab_drawer">TabDrawerActivity</string>
 </resources>

@@ -1,4 +1,4 @@
-package cn.testinone.listView;
+package cn.testinone.drawer;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

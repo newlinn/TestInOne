@@ -57,4 +57,10 @@
         android:text="btnDrawerLayoutActionBar"
         android:onClick="btnDrawerLayoutActionBar"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DrawerTabsActivity"
+        android:onClick="btnDrawerTabsActivity"/>
+
 </LinearLayout>

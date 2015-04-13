@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.testinone.menu.DrawerLayoutActivity">
+    tools:context="cn.testinone.drawer.DrawerActionBarActivity">
 
     <include layout="@layout/custom_toolbar"/>
     <include layout="@layout/custom_drawerlayout"/>

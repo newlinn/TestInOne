@@ -1,4 +1,4 @@
-package cn.testinone.menu;
+package cn.testinone.drawer;
 
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
@@ -10,7 +10,7 @@ import android.view.View;
 
 import cn.testinone.R;
 
-public class DrawerLayoutActivity extends ActionBarActivity {
+public class DrawerActionBarActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,8 +1,6 @@
 package cn.testinone;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
 import android.os.Process;
@@ -11,9 +9,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import cn.testinone.drawer.DrawerActivity;
+import cn.testinone.drawer.DrawerTabsActivity;
 import cn.testinone.listView.FruitActivity;
-import cn.testinone.listView.RecycleFruitActivity;
-import cn.testinone.menu.DrawerLayoutActivity;
+import cn.testinone.drawer.RecycleFruitActivity;
+import cn.testinone.drawer.DrawerActionBarActivity;
 import cn.testinone.ntfy.NotificationActivity;
 import cn.testinone.webviews.HttpActivity;
 import cn.testinone.webviews.MyWebViewActivity;
@@ -89,6 +89,10 @@ public class MainActivity extends Activity {
     }
 
     public void btnDrawerLayoutActionBar(View view){
-        startActivity(new Intent(MainActivity.this, DrawerLayoutActivity.class));
+        startActivity(new Intent(MainActivity.this, DrawerActionBarActivity.class));
+    }
+
+    public void btnDrawerTabsActivity(View view){
+        startActivity(new Intent(MainActivity.this, DrawerTabsActivity.class));
     }
 }

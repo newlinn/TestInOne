@@ -69,16 +69,20 @@
             android:label="@string/title_activity_web_data" >
         </activity>
         <activity
-            android:name=".DrawerActivity"
+            android:name=".drawer.DrawerActivity"
             android:label="@string/title_activity_drawer" >
         </activity>
         <activity
-            android:name=".listView.RecycleFruitActivity"
+            android:name=".drawer.RecycleFruitActivity"
             android:label="@string/title_activity_recycle_fruit" >
         </activity>
         <activity
-            android:name=".menu.DrawerLayoutActivity"
+            android:name=".drawer.DrawerActionBarActivity"
             android:label="@string/title_activity_drawer_layout" >
+        </activity>
+        <activity
+            android:name=".drawer.DrawerTabsActivity"
+            android:label="@string/title_activity_tab_drawer" >
         </activity>
     </application>
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.testinone.DrawerActivity">
+    tools:context="cn.testinone.drawer.DrawerActivity">
 
     <!--　
     DrawerLayout的第一个子元素是主要内容，即抽屉没有打开时显示的布局。这里采用了一个FrameLayout，里面什么也没放。
