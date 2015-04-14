@@ -10,29 +10,38 @@ import cn.testinone.R;
 /**
  * Created by LingChen on 15/4/12.
  */
-public class RecyclerItemViewHolder extends RecyclerView.ViewHolder
-implements View.OnClickListener, View.OnLongClickListener{
+public class RecyclerItemViewHolder extends RecyclerView.ViewHolder{
     private final TextView tvFruit;
     private final ImageView ivFruit;
 
-    public void setViewHoldItemClick(ViewHoldItemClick viewHoldItemClick) {
-        this.viewHoldItemClick = viewHoldItemClick;
-    }
-
     private ViewHoldItemClick viewHoldItemClick = null;
-
-    public RecyclerItemViewHolder(final View parent, TextView tvFruit, ImageView ivFruit) {
+    public RecyclerItemViewHolder(final View parent, ViewHoldItemClick viewHoldItemClicker,
+                                  TextView tvFruit, ImageView ivFruit) {
         super(parent);
+        this.viewHoldItemClick = viewHoldItemClicker;
         this.tvFruit = tvFruit;
         this.ivFruit = ivFruit;
-        parent.setOnClickListener(this);
-        parent.setOnLongClickListener(this);
+        parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewHoldItemClick != null)
+                    viewHoldItemClick.onClick(v, getPosition());
+            }
+        });
+        parent.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (viewHoldItemClick != null)
+                    viewHoldItemClick.onLongClick(v, getPosition());
+                return true;
+            }
+        });
     }
 
-    public static RecyclerItemViewHolder newInstance(View parent) {
+    public static RecyclerItemViewHolder newInstance(View parent,ViewHoldItemClick viewHoldItemClicker) {
         TextView tvFruit = (TextView) parent.findViewById(R.id.tvFruit);
         ImageView ivFruit = (ImageView) parent.findViewById(R.id.ivFruit);
-        return new RecyclerItemViewHolder(parent, tvFruit, ivFruit);
+        return new RecyclerItemViewHolder(parent, viewHoldItemClicker, tvFruit, ivFruit);
     }
 
     public void setItemText(CharSequence text) {
@@ -45,20 +54,6 @@ implements View.OnClickListener, View.OnLongClickListener{
 
     public void setItemImg(int resId) {
         this.ivFruit.setImageResource(resId);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        if (viewHoldItemClick != null)
-            viewHoldItemClick.onClick(v, getPosition());
-    }
-
-    @Override
-    public boolean onLongClick(View v){
-        if (viewHoldItemClick !=null)
-            viewHoldItemClick.onLongClick(v, getPosition());
-        return true;
     }
 
     public interface ViewHoldItemClick{

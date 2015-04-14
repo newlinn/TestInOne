@@ -29,8 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(this.context)
                 .inflate(R.layout.item_recycler, parent, false);
-        RecyclerItemViewHolder holder = RecyclerItemViewHolder.newInstance(view);
-        holder.setViewHoldItemClick(viewHoldItemClick);
+        RecyclerItemViewHolder holder = RecyclerItemViewHolder.newInstance(view, viewHoldItemClick);
         return holder;
     }
 
