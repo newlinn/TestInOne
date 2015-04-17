@@ -48,10 +48,6 @@ public class RecyclerItemViewHolder extends RecyclerView.ViewHolder{
         tvFruit.setText(text);
     }
 
-    public String getItemText(){
-        return tvFruit.getText().toString();
-    }
-
     public void setItemImg(int resId) {
         this.ivFruit.setImageResource(resId);
     }
