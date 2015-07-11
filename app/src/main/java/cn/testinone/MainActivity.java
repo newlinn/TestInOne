@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import java.util.InputMismatchException;
+
 import cn.testinone.drawer.DrawerActivity;
 import cn.testinone.drawer.DrawerTabsActivity;
 import cn.testinone.listView.FruitActivity;
@@ -20,7 +22,7 @@ import cn.testinone.webviews.MyWebViewActivity;
 import cn.testinone.webviews.WebDataActivity;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,4 +97,44 @@ public class MainActivity extends Activity {
     public void btnDrawerTabsActivity(View view){
         startActivity(new Intent(MainActivity.this, DrawerTabsActivity.class));
     }
+
+    public void showDlgProgressbar(View view){
+        Toast.makeText(MainActivity.this, "showDlgProgressbar", Toast.LENGTH_SHORT).show();
+
+        final Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message msg = Message.obtain(uiHandler);
+                msg.what = 1;
+                uiHandler.sendMessage(msg);
+                try {
+                    Thread.sleep(5000);
+                } catch (Exception iex) {
+                    iex.printStackTrace();
+                }
+                msg = Message.obtain(uiHandler);
+                msg.what = 0;
+                uiHandler.sendMessage(msg);
+
+            }
+        });
+        thread.start();
+    }
+
+    Handler uiHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    dlgLoading.dismiss();
+                    break;
+                case 1:
+                    dlgLoading.show();
+                    break;
+                default:
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    };
 }

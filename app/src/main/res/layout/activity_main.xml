@@ -63,4 +63,9 @@
         android:text="DrawerTabsActivity"
         android:onClick="btnDrawerTabsActivity"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show dialog progress_bar"
+        android:onClick="showDlgProgressbar"/>
 </LinearLayout>
