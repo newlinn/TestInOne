@@ -18,4 +18,5 @@
     <string name="OPEN">OPEN</string>
     <string name="CLOSE">CLOSE</string>
     <string name="title_activity_tab_drawer">TabDrawerActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

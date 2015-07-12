@@ -84,6 +84,10 @@
             android:name=".drawer.DrawerTabsActivity"
             android:label="@string/title_activity_tab_drawer" >
         </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_main2" >
+        </activity>
     </application>
 
 </manifest>

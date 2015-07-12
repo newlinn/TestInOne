@@ -1,71 +1,101 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnNotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onBtnClick"
-        android:text="Notification"/>
-    <Button
-        android:id="@+id/btnWebView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="webView"
-        android:text="Web View"/>
-    <Button
-        android:id="@+id/btnFruitLstView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="fruitLstView"
-        android:text="Fruit ListView"/>
+    <include layout="@layout/toolbar_main"/>
 
-    <Button
-        android:id="@+id/btnHTTPREQ"
+    <android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="httpRequest"
-        android:text="httpRequest"/>
+        android:id="@+id/drawer_layout">
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Parse Web Data"
-        android:onClick="parseWebData"/>
+        <LinearLayout
+            android:id="@+id/left_menu"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@color/skyblue"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btnNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onBtnClick"
+                android:text="Notification"/>
+            <Button
+                android:id="@+id/btnWebView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="webView"
+                android:text="Web View"/>
+            <Button
+                android:id="@+id/btnFruitLstView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="fruitLstView"
+                android:text="Fruit ListView"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DrawerLayout"
-        android:onClick="btnDrawerLayout"/>
+            <Button
+                android:id="@+id/btnHTTPREQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="httpRequest"
+                android:text="httpRequest"/>
 
-    <Button
-        android:id="@+id/btnRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RecyclerView"
-        android:onClick="btnRecyclerView"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parse Web Data"
+                android:onClick="parseWebData"/>
 
-    <Button
-        android:id="@+id/btnDrawerLayoutActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="btnDrawerLayoutActionBar"
-        android:onClick="btnDrawerLayoutActionBar"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DrawerLayout"
+                android:onClick="btnDrawerLayout"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DrawerTabsActivity"
-        android:onClick="btnDrawerTabsActivity"/>
+            <Button
+                android:id="@+id/btnRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecyclerView"
+                android:onClick="btnRecyclerView"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="show dialog progress_bar"
-        android:onClick="showDlgProgressbar"/>
+            <Button
+                android:id="@+id/btnDrawerLayoutActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="btnDrawerLayoutActionBar"
+                android:onClick="btnDrawerLayoutActionBar"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DrawerTabsActivity"
+                android:onClick="btnDrawerTabsActivity"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="menu activity"
+                android:onClick="menuActivity"/>
+
+            <Button
+                style="@style/lineButton"
+                android:text="show loading dialog"
+                android:onClick="showDlgLoading"/>
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+
 </LinearLayout>

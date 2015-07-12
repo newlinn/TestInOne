@@ -73,8 +73,8 @@ public class SDCardUtils
 			filePath = Environment.getDataDirectory().getAbsolutePath();
 		}
 		StatFs stat = new StatFs(filePath);
-		long availableBlocks = (long) stat.getAvailableBlocks() - 4;
-		return stat.getBlockSize() * availableBlocks;
+		long availableBlocks = stat.getAvailableBlocksLong() - 4;
+		return stat.getBlockSizeLong() * availableBlocks;
 	}
 
 	/**
