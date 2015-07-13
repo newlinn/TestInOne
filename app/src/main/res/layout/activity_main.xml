@@ -17,84 +17,123 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/llcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LinearLayout"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
         </FrameLayout>
 
-        <LinearLayout
-            android:id="@+id/left_menu"
-            android:layout_width="240dp"
+        <ScrollView
             android:layout_height="match_parent"
+            android:layout_width="240dp"
+            android:scrollbars="vertical"
             android:layout_gravity="left"
-            android:background="@color/skyblue"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/btnNotification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onBtnClick"
-                android:text="Notification"/>
-            <Button
-                android:id="@+id/btnWebView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="webView"
-                android:text="Web View"/>
-            <Button
-                android:id="@+id/btnFruitLstView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="fruitLstView"
-                android:text="Fruit ListView"/>
+            android:fadingEdge="vertical">
 
-            <Button
-                android:id="@+id/btnHTTPREQ"
+            <LinearLayout
+                android:id="@+id/left_menu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="httpRequest"
-                android:text="httpRequest"/>
+                android:layout_height="match_parent"
+                android:background="@color/skyblue"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/btnNotification"
+                    style="@style/lineButton"
+                    android:onClick="onBtnClick"
+                    android:text="Notification"/>
+                <Button
+                    android:id="@+id/btnWebView"
+                    style="@style/lineButton"
+                    android:onClick="webView"
+                    android:text="Web View"/>
+                <Button
+                    android:id="@+id/btnFruitLstView"
+                    style="@style/lineButton"
+                    android:onClick="fruitLstView"
+                    android:text="Fruit ListView"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Parse Web Data"
-                android:onClick="parseWebData"/>
+                <Button
+                    android:id="@+id/btnHTTPREQ"
+                    style="@style/lineButton"
+                    android:onClick="httpRequest"
+                    android:text="httpRequest"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DrawerLayout"
-                android:onClick="btnDrawerLayout"/>
+                <Button
+                    style="@style/lineButton"
+                    android:text="Parse Web Data"
+                    android:onClick="parseWebData"/>
 
-            <Button
-                android:id="@+id/btnRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RecyclerView"
-                android:onClick="btnRecyclerView"/>
+                <Button
+                    style="@style/lineButton"
+                    android:text="DrawerLayout"
+                    android:onClick="btnDrawerLayout"/>
 
-            <Button
-                android:id="@+id/btnDrawerLayoutActionBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="btnDrawerLayoutActionBar"
-                android:onClick="btnDrawerLayoutActionBar"/>
+                <Button
+                    android:id="@+id/btnRecyclerView"
+                    style="@style/lineButton"
+                    android:text="RecyclerView"
+                    android:onClick="btnRecyclerView"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DrawerTabsActivity"
-                android:onClick="btnDrawerTabsActivity"/>
+                <Button
+                    android:id="@+id/btnDrawerLayoutActionBar"
+                    style="@style/lineButton"
+                    android:text="btnDrawerLayoutActionBar"
+                    android:onClick="btnDrawerLayoutActionBar"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="menu activity"
-                android:onClick="menuActivity"/>
+                <Button
+                    style="@style/lineButton"
+                    android:text="DrawerTabsActivity"
+                    android:onClick="btnDrawerTabsActivity"/>
 
-            <Button
-                style="@style/lineButton"
-                android:text="show loading dialog"
-                android:onClick="showDlgLoading"/>
-        </LinearLayout>
+                <Button
+                    style="@style/lineButton"
+                    android:text="menu activity"
+                    android:onClick="menuActivity"/>
+
+                <Button
+                    style="@style/lineButton"
+                    android:text="show loading dialog"
+                    android:onClick="showDlgLoading"/>
+
+                <Button
+                    style="@style/lineButton"
+                    android:text="broadcast"
+                    android:onClick="testBroadcast"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="add Fragment"
+                        android:onClick="addFragment"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="remove Fragment"
+                        android:onClick="removeFragment"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
     </android.support.v4.widget.DrawerLayout>
 
 

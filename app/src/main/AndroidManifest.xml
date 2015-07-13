@@ -3,7 +3,7 @@
     package="cn.testinone" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.receive_boot_completed" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -88,6 +88,13 @@
             android:name=".MenuActivity"
             android:label="@string/title_activity_main2" >
         </activity>
+
+        <receiver android:name=".BootReciver">
+            <intent-filter>
+                <action android:name="android.intent.action.boot_completed" />
+            </intent-filter>
+        </receiver>
     </application>
+
 
 </manifest>

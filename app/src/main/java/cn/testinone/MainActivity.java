@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -48,11 +49,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case R.id.action_settings:
 
                 return true;
-
             default:
         }
         return super.onOptionsItemSelected(item);
@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle btnToggle;
     DrawerLayout drawerLayout;
 
-    private void findViews()
-    {
+    private void findViews() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
     }
+
 
     private void initToolbar() {
 
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Dialog dlgLoading;
+
     private Dialog createLoadingDialog(Context context) {
 
         Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);
@@ -156,23 +157,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, RecycleFruitActivity.class));
     }
 
-    public void btnDrawerLayoutActionBar(View view){
+    public void btnDrawerLayoutActionBar(View view) {
         startActivity(new Intent(MainActivity.this, DrawerActionBarActivity.class));
     }
 
-    public void btnDrawerTabsActivity(View view){
+    public void btnDrawerTabsActivity(View view) {
         startActivity(new Intent(MainActivity.this, DrawerTabsActivity.class));
     }
 
-    public void menuActivity(View view){
+    public void menuActivity(View view) {
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
     }
 
-    Handler uiHandler = new Handler(){
+    Handler uiHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case showDlgLoading:
                     toolbar.setTitle("Loading...");
                     drawerLayout.closeDrawer(Gravity.LEFT);
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     final int showDlgLoading = 0x0001;
     final int dismissDlgLoading = 0x0002;
 
-    public void showDlgLoading(View view){
+    public void showDlgLoading(View view) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -213,5 +214,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         thread.start();
+    }
+
+    public void testBroadcast(View view) {
+
+    }
+    FragmentFirst fragmentFirst = new FragmentFirst();
+    public void addFragment(View view) {
+
+        getFragmentManager().beginTransaction().replace(R.id.llcontainer, fragmentFirst).commit();
+
+    }
+
+    public void removeFragment(View view){
+        getFragmentManager().beginTransaction().remove(fragmentFirst).commit();
     }
 }
