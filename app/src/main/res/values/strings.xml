@@ -19,4 +19,11 @@
     <string name="CLOSE">CLOSE</string>
     <string name="title_activity_tab_drawer">TabDrawerActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_thread">ThreadActivity</string>
+    <string name="title_activity_edt">EdtActivity</string>
+    <string name="title_activity_empty">EmptyActivity</string>
+    <string name="title_activity_adjust_text_view">AdjustTextViewActivity</string>
 </resources>
