@@ -23,6 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import cn.testinone.lstview.LstViewFragment;
 import cn.testinone.srv.SrvFragment;
 import cn.testinone.threads.ThreadActivity;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity{
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         dlgLoading = createLoadingDialog(MainActivity.this);
         initToolbar();
+        setEmptyView();
     }
 
     @Override
@@ -176,5 +179,32 @@ public class MainActivity extends AppCompatActivity{
     public interface BackToListTop
     {
         void toTop();
+    }
+
+    private void loadData(){
+        emptyView.loading(); // 加载中
+        // 2s后出结果
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Random r = new Random();
+                int res = r.nextInt(5);
+                emptyView.empty();
+                if (res == 0) {
+                    emptyView.success();
+                    tvContainer.setText("success" + res);
+                } else {
+                    emptyView.empty();
+                }
+            }
+        }, 2000);
+    }
+
+    EmptyView emptyView;
+    private void setEmptyView(){
+        emptyView = (EmptyView) findViewById(R.id.vEmpty);
+
+        emptyView.setParentView(tvContainer); // 设置bindView
+        emptyView.bindBtnClick(this, "loadData"); // 当button点击时调用哪个方法
     }
 }
