@@ -44,6 +44,10 @@
             android:name=".tv.AdjustTextViewActivity"
             android:label="@string/title_activity_adjust_text_view" >
         </activity>
+        <activity
+            android:name=".HoveringScroll.HoveringScrollActivity"
+            android:label="@string/title_activity_hovering_scroll" >
+        </activity>
     </application>
 
 </manifest>

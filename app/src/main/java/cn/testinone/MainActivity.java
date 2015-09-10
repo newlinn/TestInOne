@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import cn.testinone.HoveringScroll.HoveringScrollActivity;
 import cn.testinone.lstview.LstViewFragment;
 import cn.testinone.srv.SrvFragment;
 import cn.testinone.threads.ThreadActivity;
@@ -170,6 +171,8 @@ public class MainActivity extends AppCompatActivity{
             case R.id.btnTextView:
                 startActivity(new Intent(MainActivity.this, AdjustTextViewActivity.class));
                 break;
+            case R.id.btnHoveringScroll:
+                startActivity(new Intent(MainActivity.this, HoveringScrollActivity.class));
             default:
                 break;
         }

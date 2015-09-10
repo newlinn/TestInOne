@@ -26,4 +26,5 @@
     <string name="title_activity_edt">EdtActivity</string>
     <string name="title_activity_empty">EmptyActivity</string>
     <string name="title_activity_adjust_text_view">AdjustTextViewActivity</string>
+    <string name="title_activity_hovering_scroll">HoveringScrollActivity</string>
 </resources>
